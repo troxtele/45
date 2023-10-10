@@ -49,14 +49,16 @@
     </h3>
 
     <div
-      class="wrapper sm:flex justify-center sm:justify-between gap-6 max-w-[70rem] m-auto pt-5"
+      class="wrapper grid grid-cols-span-2 sm:flex justify-center sm:px-6 md:px-0 sm:justify-between gap-6 max-w-[70rem] m-auto py-5"
     >
       <!-- left -->
-      <div class="font-bold hidden sm:flex flex-col gap-7 self-center">
+      <div
+        class="font-bold flex flex-col gap-5 sm:gap-7 self-center row-start-2"
+      >
         <!-- Reset button -->
         <button
           id="reset"
-          class="py-4 md:py-5 lg:py-8 w-[10rem] md:w-[13rem] lg:w-[16rem] text-3xl lg:text-4xl bg-blue-900 text-white font-bold rounded-full"
+          class="py-3 sm:py-4 md:py-5 lg:py-8 w-[7.5rem] sm:w-[10rem] md:w-[13rem] lg:w-[16rem] text-2xl md:text-3xl lg:text-5xl bg-blue-900 text-white font-bold rounded-full"
         >
           Reset
         </button>
@@ -64,83 +66,46 @@
         <!-- Start button -->
         <button
           id="start"
-          class="py-4 md:py-5 lg:py-8 w-[10rem] md:w-[13rem] lg:w-[16rem] text-3xl lg:text-4xl bg-orange-700 text-white font-bold rounded-full"
+          class="py-3 sm:py-4 md:py-5 lg:py-8 w-[7.5rem] sm:w-[10rem] md:w-[13rem] lg:w-[16rem] text-2xl md:text-3xl lg:text-5xl bg-orange-700 text-white font-bold rounded-full"
         >
           Start
         </button>
       </div>
       <!-- Countdown -->
-      <div class="font-bold">
+      <div class="font-bold col-span-2 flex justify-center">
         <span
           id="countdown"
-          class="text-[8rem] sm:text-[10rem] md:text-[12.5rem] lg:text-[24rem] leading-[1]"
+          class="text-[10rem] md:text-[12.5rem] lg:text-[24rem] leading-[1]"
           >45</span
         >
       </div>
       <!-- right -->
-      <div class="font-bold hidden sm:flex flex-col gap-7 self-center">
+      <div
+        class="font-bold flex flex-col gap-5 sm:gap-7 self-center row-start-2"
+      >
         <!-- Yell X -->
         <button
           id="ext-2"
-          class="py-4 md:py-5 lg:py-8 w-[10rem] md:w-[13rem] lg:w-[16rem] text-3xl lg:text-4xl bg-amber-300 text-white font-bold rounded-full"
+          class="py-3 sm:py-4 md:py-5 lg:py-8 w-[7.5rem] sm:w-[10rem] md:w-[13rem] lg:w-[16rem] text-2xl md:text-3xl lg:text-5xl bg-amber-300 text-white font-bold rounded-full"
         >
           Yell X
         </button>
         <!-- Red X -->
         <button
           id="ext-1"
-          class="py-4 md:py-5 lg:py-8 w-[10rem] md:w-[13rem] lg:w-[16rem] text-3xl lg:text-4xl bg-rose-800 text-white font-bold rounded-full"
+          class="py-3 sm:py-4 md:py-5 lg:py-8 w-[7.5rem] sm:w-[10rem] md:w-[13rem] lg:w-[16rem] text-2xl md:text-3xl lg:text-5xl bg-rose-800 text-white font-bold rounded-full"
         >
           Red X
         </button>
       </div>
     </div>
 
-    <!-- mobile version -->
-    <div class="mobile sm:hidden grid justify-center gap-6 mt-4 mb-8">
-      <!-- left -->
-      <div class="font-bold flex gap-5 self-center">
-        <!-- Reset button -->
-        <button
-          id="reset-mobile"
-          class="py-3 w-[7.5rem] text-xl bg-blue-900 text-white font-bold rounded-full"
-        >
-          Reset
-        </button>
-
-        <!-- Yell X -->
-        <button
-          id="ext-2-mobile"
-          class="py-3 w-[7.5rem] text-xl bg-amber-300 text-white font-bold rounded-full"
-        >
-          Yell X
-        </button>
-      </div>
-
-      <!-- right -->
-      <div class="font-bold flex gap-5 self-center">
-        <!-- Start button -->
-        <button
-          id="start-mobile"
-          class="py-3 w-[7.5rem] text-xl bg-orange-700 text-white font-bold rounded-full"
-        >
-          Start
-        </button>
-        <!-- Red X -->
-        <button
-          id="ext-1-mobile"
-          class="py-3 w-[7.5rem] text-xl bg-rose-800 text-white font-bold rounded-full"
-        >
-          Red X
-        </button>
-      </div>
-    </div>
-    <div class="flex justify-center py-2 sm:mt-4 md:mt-8">
+    <div class="flex justify-center mt-2 sm:mt-4 md:mt-8">
       <div class="font-bold">
         <!-- Reset All button -->
         <button
           id="reset-all"
-          class="py-3 sm:py-5 md:py-6 lg:py-10 w-[10rem] sm:w-[12rem] md:w-[16rem] lg:w-[20rem] text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-teal-600 text-white font-bold rounded-full ml-2"
+          class="py-4 sm:py-5 md:py-6 lg:py-10 w-[10rem] sm:w-[12rem] md:w-[16rem] lg:w-[20rem] text-xl sm:text-2xl md:text-3xl lg:text-5xl bg-teal-600 text-white font-bold rounded-full ml-2"
         >
           Reset All
         </button>
@@ -155,21 +120,6 @@
       let startButton = document.getElementById("start");
       let ext1Button = document.getElementById("ext-1");
       let ext2Button = document.getElementById("ext-2");
-
-      window.addEventListener("resize", () => {
-        // when the screen is less than 640px wide, use the mobile buttons
-        if (window.innerWidth < 640) {
-          resetButton = document.getElementById("reset-mobile");
-          startButton = document.getElementById("start-mobile");
-          ext1Button = document.getElementById("ext-1-mobile");
-          ext2Button = document.getElementById("ext-2-mobile");
-        } else {
-          resetButton = document.getElementById("reset");
-          startButton = document.getElementById("start");
-          ext1Button = document.getElementById("ext-1");
-          ext2Button = document.getElementById("ext-2");
-        }
-      });
 
       let countdownValue = 45; // start countdown at 45 seconds
       let interval; // declare interval variable
